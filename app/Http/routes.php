@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +24,11 @@ Route::get('/', function () {
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
+    Route::get('/',['as'=>'root','uses'=>'PagesController@welcome']);
+
+    Route::get('/login',['middleware'=>'guest','as'=>'login','uses'=>'AuthController@login']);
+    Route::post('/handleLogin',['as'=>'handleLogin','uses'=>'AuthController@handleLogin']);
+
+    Route::get('/signup',['middleware'=>'guest','as'=>'Signup','uses'=>'UsersController@create']);
+    Route::post('/handleSignup',['as'=>'HandleSignup','uses'=>'UsersController@store']);
 });
