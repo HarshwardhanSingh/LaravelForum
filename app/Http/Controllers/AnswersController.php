@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Answer;
+
 class AnswersController extends Controller
 {
     /**
@@ -25,7 +27,7 @@ class AnswersController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,9 +36,20 @@ class AnswersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$ques_id)
     {
-        //
+        $data = $request->only('content');
+        $data['question_id'] = $ques_id;
+        $data['user_id'] = \Auth::user()->id;
+        $answer = Answer::create($data);
+        if($answer)
+        {
+          return back();
+        }
+        else
+        {
+            return back()->withInput();
+        }
     }
 
     /**

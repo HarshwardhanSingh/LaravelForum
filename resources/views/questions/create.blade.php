@@ -6,11 +6,11 @@
       {!! Form::open(array('route'=>'questions.store')) !!}
         <div class="form-group">
           {!! Form::label('title') !!}
-          {!! Form::text('title',null,array('class'=>'form-control')) !!}
+          {!! Form::text('title',null,array('class'=>'form-control','placeholder'=>'Question Title')) !!}
         </div>
         <div class="form-group">
           {!! Form::label('content') !!}
-          {!! Form::textarea('content',null,array('class'=>'form-control')) !!}
+          {!! Form::textarea('content',null,array('class'=>'form-control','placeholder'=>'Describe your question in detail','rows'=>'5')) !!}
         </div>
         <div class="form-group">
           {!! Form::token() !!}

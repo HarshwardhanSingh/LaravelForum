@@ -5749,4 +5749,20 @@ button.close {
   .hidden-print {
     display: none !important; } }
 
+.form-control {
+  border-radius: 0px; }
+
+.answer {
+  margin: 10px auto;
+  padding: 10px; }
+
+.welcome {
+  background-color: #ffffff;
+  padding: 10rem;
+  letter-spacing: 1px;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 2;
+  box-shadow: 0 0 3px 1px #e9e9e9; }
+
 /*# sourceMappingURL=app.css.map */

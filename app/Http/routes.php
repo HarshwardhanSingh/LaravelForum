@@ -34,4 +34,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/handleSignup',['as'=>'HandleSignup','uses'=>'UsersController@store']);
 
     Route::resource('questions','QuestionsController');
+
+    Route::post('/saveAnswer/{ques_id}',['as'=>'saveAnswer','uses'=>'AnswersController@store']);
 });

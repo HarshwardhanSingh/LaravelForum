@@ -10,7 +10,32 @@
         </div>
         <div class="panel-body">
           {{ $question->content }}
+          <br/>
+          <br/>
+          <h6>Asked By: {{ $question->user->name }}</h6>
         </div>
+      </div>
+      <div class="answer-form">
+        {!! Form::open(array('route'=>array('saveAnswer',$question->id))) !!}
+          <div class="form-group">
+            {!! Form::label('content','Write Answer') !!}
+            {!! Form::textarea('content',null,array('class'=>'form-control','placeholder'=>'Write Answer','rows'=>'5')) !!}
+          </div>
+          <div class="form-actions">
+            {!! Form::token() !!}
+            {!! Form::submit('Post',array('class'=>'btn btn-success')) !!}
+          </div>
+        {!! Form::close() !!}
+      </div>
+      <div class="answers">
+        @foreach($question->answers as $answer)
+          <div class="answer panel panel-default">
+            {{ $answer->content }}
+            <br/>
+            <br/>
+            <h6>Answered By: {{ $answer->user->name }}</h6>
+          </div>
+        @endforeach
       </div>
     </div>
   </div>
