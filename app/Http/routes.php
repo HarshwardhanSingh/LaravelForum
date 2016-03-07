@@ -28,7 +28,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/login',['middleware'=>'guest','as'=>'login','uses'=>'AuthController@login']);
     Route::post('/handleLogin',['as'=>'handleLogin','uses'=>'AuthController@handleLogin']);
+    Route::get('/logout',['middleware'=>'auth','as'=>'logout','uses'=>'AuthController@logout']);
 
-    Route::get('/signup',['middleware'=>'guest','as'=>'Signup','uses'=>'UsersController@create']);
+    Route::get('/signup',['middleware'=>'guest','as'=>'signup','uses'=>'UsersController@create']);
     Route::post('/handleSignup',['as'=>'HandleSignup','uses'=>'UsersController@store']);
+
+    Route::resource('questions','QuestionsController');
 });

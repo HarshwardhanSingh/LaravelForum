@@ -6,8 +6,15 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\Question;
+
 class QuestionsController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth',['only'=>['create','edit','destroy']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +22,8 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::all();
+        return view('questions.index',compact('questions'));
     }
 
     /**
@@ -25,7 +33,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        //
+        return view('questions.create');
     }
 
     /**
@@ -36,7 +44,17 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->only('title','content');
+        $data['user_id'] = \Auth::user()->id;
+        $question = Question::create($data);
+        if($question)
+        {
+          return redirect()->route('questions.index');
+        }
+        else
+        {
+            return back()->withInput();
+        }
     }
 
     /**
@@ -47,7 +65,8 @@ class QuestionsController extends Controller
      */
     public function show($id)
     {
-        //
+        $question = Question::find($id)->firstOrFail();
+        return view('questions.show',compact('question'));
     }
 
     /**
@@ -58,7 +77,8 @@ class QuestionsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $question = Question::find($id)->firstOrFail();
+        return view('questions.edit',compact('question'));
     }
 
     /**
@@ -70,7 +90,10 @@ class QuestionsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $question = Question::find($id)->firstOrFail();
+        $data = $request->only('title','content');
+        $question->update($data);
+        return redirect()->route('questions.index');
     }
 
     /**
@@ -81,6 +104,7 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Question::destroy($id);
+      return redirect()->route('posts.index');
     }
 }

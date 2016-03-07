@@ -28,4 +28,10 @@ class AuthController extends Controller
         return back()->withInput();
       }
     }
+
+    public function logout()
+    {
+      \Auth::logout();
+      return redirect()->route('login');
+    }
 }
