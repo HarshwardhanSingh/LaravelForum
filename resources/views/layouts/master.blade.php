@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>InnFact | Blogging begins here</title>
+	<title>InnFact | Forum</title>
 	<link rel="stylesheet" href="{{ URL::asset('css/app.css') }}">
 </head>
 <body>
