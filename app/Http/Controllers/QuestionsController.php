@@ -44,6 +44,7 @@ class QuestionsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,Question::$create_validation_rules);
         $data = $request->only('title','content');
         $data['user_id'] = \Auth::user()->id;
         $question = Question::create($data);

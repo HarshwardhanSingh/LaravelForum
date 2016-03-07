@@ -16,6 +16,13 @@
         </div>
       </div>
       <div class="answer-form">
+        @if($errors->count())
+  				<ul class="alert alert-danger">
+  				@foreach($errors->all() as $error)
+  					<li>{{ $error }}</li>
+  				@endforeach
+  				</ul>
+  			@endif
         {!! Form::open(array('route'=>array('saveAnswer',$question->id))) !!}
           <div class="form-group">
             {!! Form::label('content','Write Answer') !!}
@@ -23,16 +30,15 @@
           </div>
           <div class="form-actions">
             {!! Form::token() !!}
-            {!! Form::submit('Post',array('class'=>'btn btn-success')) !!}
+            {!! Form::submit('Post',array('class'=>'btn btn-success form-control')) !!}
           </div>
         {!! Form::close() !!}
       </div>
+      <hr/>
       <div class="answers">
         @foreach($question->answers as $answer)
           <div class="answer panel panel-default">
             {{ $answer->content }}
-            <br/>
-            <br/>
             <h6>Answered By: {{ $answer->user->name }}</h6>
           </div>
         @endforeach

@@ -38,6 +38,7 @@ class AnswersController extends Controller
      */
     public function store(Request $request,$ques_id)
     {
+        $this->validate($request,Answer::$create_validation_rules);
         $data = $request->only('content');
         $data['question_id'] = $ques_id;
         $data['user_id'] = \Auth::user()->id;

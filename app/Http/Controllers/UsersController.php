@@ -23,7 +23,7 @@ class UsersController extends Controller
       $user = User::create($data);
       if($user)
       {
-        \Auth::attempt($data);
+        \Auth::login($user);
         return redirect()->route('root');
       }
       else
