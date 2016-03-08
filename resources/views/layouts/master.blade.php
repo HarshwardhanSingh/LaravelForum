@@ -25,5 +25,8 @@
 <div class="container">
 	@yield('content')
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.1/jquery.js"></script>
+<script src="{{ URL::asset('js/main.js') }}"></script>
 </body>
 </html>

@@ -15,21 +15,22 @@
           <h6>{{ $question->user->name }} - {{$question->created_at->diffforHumans()}}</h6>
         </div>
       </div>
+      <a href="#" class="btn btn-primary display-answer-form">Write Answer</a>
       <div class="answer-form">
         @if($errors->count())
-  				<ul class="alert alert-danger">
-  				@foreach($errors->all() as $error)
-  					<li>{{ $error }}</li>
-  				@endforeach
-  				</ul>
-  			@endif
+          <ul class="alert alert-danger">
+          @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+          @endforeach
+          </ul>
+        @endif
         {!! Form::open(array('route'=>array('saveAnswer',$question->id))) !!}
           <div class="form-group">
             {!! Form::textarea('content',null,array('class'=>'form-control','placeholder'=>'Write Your Answer Here...','rows'=>'5')) !!}
           </div>
           <div class="form-actions">
             {!! Form::token() !!}
-            {!! Form::submit('Post',array('class'=>'btn btn-success form-control')) !!}
+            {!! Form::submit('Post',array('class'=>'btn btn-success')) !!}
           </div>
         {!! Form::close() !!}
       </div>
@@ -50,12 +51,6 @@
         @endforeach
       </div>
     </div>
-    <!-- <div class="col-md-4">
-      @foreach($questions as $question)
-        {{$question->title}}
-        <br/>
-      @endforeach
-    </div> -->
   </div>
 
 @endsection
