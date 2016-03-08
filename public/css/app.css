@@ -5784,12 +5784,17 @@ body {
 
 .panel-body h6 {
   display: block;
-  background-color: #e9e9e9;
   padding: 10px;
   margin: 5px -10px;
   letter-spacing: 1px;
-  text-transform: capitalize;
-  margin-bottom: -10px; }
+  text-transform: uppercase;
+  margin-bottom: -10px;
+  margin: -13px -15px;
+  margin-top: 15px;
+  text-align: right;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-style: italic; }
 
 .answers {
   background-color: #fafafa;
@@ -5808,8 +5813,22 @@ ul.alert-danger {
   box-shadow: 0 0 3px 1px #e9e9e9; }
 
 .question {
-  background-color: #fafafa; }
+  border: 2px solid #e9e9e9;
+  border-radius: 0.3em;
+  background-color: #ffffff;
+  margin: 2rem auto; }
+  .question .panel-heading a, .question .panel-heading a:hover {
+    font-size: 1em;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    color: #6e6262;
+    text-decoration: none; }
+  .question .panel-heading .timestamp {
+    color: #6e6262;
+    font-size: 0.9em; }
   .question .panel-body {
-    margin-top: -10px; }
+    margin-top: -20px;
+    letter-spacing: 1px;
+    line-height: 1.7; }
 
 /*# sourceMappingURL=app.css.map */

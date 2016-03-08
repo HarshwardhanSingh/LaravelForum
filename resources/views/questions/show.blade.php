@@ -12,7 +12,7 @@
           {{ $question->content }}
           <br/>
           <br/>
-          <h6>Asked By: {{ $question->user->name }}</h6>
+          <h6>{{ $question->user->name }} - {{$question->created_at->diffforHumans()}}</h6>
         </div>
       </div>
       <div class="answer-form">
