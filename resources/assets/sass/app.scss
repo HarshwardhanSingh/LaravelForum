@@ -58,16 +58,8 @@ input[type="text"],input[type="email"],input[type="password"]
   border-radius: .3em;
   // border:1px solid #e9e9e9;
 
+}
 
-  .btn
-  {
-    // border-radius: 2em 2em 2em 10em;
-  }
-}
-.middle-container
-{
-  border-left: 2px solid #e9e9e9;
-}
 
 .btn,.btn:focus,.btn:active,.btn:hover
 {
@@ -87,8 +79,9 @@ input[type="text"],input[type="email"],input[type="password"]
   margin:10px auto;
   padding:7px 0;
   border-bottom:1px solid #e9e9e9;
-  border: 2px solid #6ecede;
+  border: 2px solid #e9e9e9;
   border-radius: 0.3em;
+  padding-bottom: -5px;
 
   .panel-heading
   {
@@ -98,7 +91,7 @@ input[type="text"],input[type="email"],input[type="password"]
     {
       font-weight: normal;
       text-transform: capitalize;
-      color: #6ecede;
+      color: #5d5d5d;
     }
   }
   .panel-body
@@ -108,7 +101,8 @@ input[type="text"],input[type="email"],input[type="password"]
   .timestamp
   {
     font-size: 0.9em;
-
+    color: #5d5d5d;
+    
   }
 
   h6

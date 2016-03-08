@@ -5784,9 +5784,6 @@ input[type="text"], input[type="email"], input[type="password"] {
   margin-top: 30px;
   border-radius: .3em; }
 
-.middle-container {
-  border-left: 2px solid #e9e9e9; }
-
 .btn, .btn:focus, .btn:active, .btn:hover {
   background-color: #6ecede;
   border: transparent;
@@ -5800,18 +5797,20 @@ input[type="text"], input[type="email"], input[type="password"] {
   margin: 10px auto;
   padding: 7px 0;
   border-bottom: 1px solid #e9e9e9;
-  border: 2px solid #6ecede;
-  border-radius: 0.3em; }
+  border: 2px solid #e9e9e9;
+  border-radius: 0.3em;
+  padding-bottom: -5px; }
   .answer .panel-heading {
     margin-top: -10px; }
     .answer .panel-heading span {
       font-weight: normal;
       text-transform: capitalize;
-      color: #6ecede; }
+      color: #5d5d5d; }
   .answer .panel-body {
     margin-top: -15px; }
   .answer .timestamp {
-    font-size: 0.9em; }
+    font-size: 0.9em;
+    color: #5d5d5d; }
   .answer h6 {
     display: block;
     background-color: #e9e9e9;
