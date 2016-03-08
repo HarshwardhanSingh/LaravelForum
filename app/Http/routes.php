@@ -36,4 +36,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::resource('questions','QuestionsController');
 
     Route::post('/saveAnswer/{ques_id}',['as'=>'saveAnswer','uses'=>'AnswersController@store']);
+
+    Route::get('/myQuestions',['as'=>'myProfile','uses'=>'QuestionsController@myQuestions']);
 });

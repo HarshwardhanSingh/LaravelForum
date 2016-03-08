@@ -1,18 +1,42 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
+@import url(https://fonts.googleapis.com/css?family=Roboto);
 body
 {
-font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 .form-control
 {
   border-radius: 0px;
 }
+.answer-form
+{
+  margin-top:30px;
+}
+.middle-container
+{
+  border-left: 2px solid #e9e9e9;
+}
+
 .answer
 {
   margin:10px auto;
   padding:10px;
+  border-bottom:1px solid #e9e9e9;
+
+  .panel-heading
+  {
+    margin-top:-10px;
+  }
+  .panel-body
+  {
+    margin-top:-15px;
+  }
+  .timestamp
+  {
+    font-size: 0.9em;
+
+  }
 
   h6
   {
@@ -40,7 +64,8 @@ font-family: 'Open Sans', sans-serif;
 }
 .answers
 {
-  box-shadow: 0px -3px 3px 1px #e9e9e9;
+  background-color: #fafafa;
+  margin-top:10px;
 }
 ul.alert-danger
 {
@@ -55,4 +80,15 @@ ul.alert-danger
   font-style: italic;
   line-height: 2;
   box-shadow: 0 0 3px 1px #e9e9e9;
+}
+.question
+{
+    // border:1px solid #e9e9e9;
+    // border-radius: 0.3em;
+    background-color: #fafafa;
+
+    .panel-body
+    {
+      margin-top:-10px;
+    }
 }

@@ -13,6 +13,7 @@
 		<ul class="navbar-nav nav navbar-right">
 			@if(\Auth::check())
 				<li>{{ link_to_route('questions.create', 'Ask') }}</li>
+				<li><a href="#">Logged in as {{ \Auth::user()->name }}</a></li>
 				<li>{{ link_to_route('logout', 'Log Out') }}</li>
 			@else
 				<li>{{ link_to_route('signup','Sign Up')}}</li>

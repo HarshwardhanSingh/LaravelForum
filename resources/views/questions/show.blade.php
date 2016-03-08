@@ -3,8 +3,8 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="question panel panel-default">
+    <div class="col-md-8 col-md-offset-2 middle-container">
+      <div class="question">
         <div class="panel-heading">
           <h4>{{ $question->title }}</h4>
         </div>
@@ -37,9 +37,16 @@
       <hr/>
       <div class="answers">
         @foreach($question->answers as $answer)
-          <div class="answer panel panel-default">
-            {{ $answer->content }}
-            <h6>Answered By: {{ $answer->user->name }}</h6>
+          <div class="answer">
+            <div class="panel-heading">
+              <b>{{ $answer->user->name }}</b> answered :-
+              <div class="timestamp">
+                {{ $answer->created_at->diffforHumans()}}
+              </div>
+            </div>
+            <div class="panel-body">
+              {{ $answer->content }}
+            </div>
           </div>
         @endforeach
       </div>

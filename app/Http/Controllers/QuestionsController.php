@@ -15,6 +15,12 @@ class QuestionsController extends Controller
       $this->middleware('auth',['only'=>['create','edit','destroy']]);
     }
 
+    public function myQuestions()
+    {
+      $questions = \Auth::user()->questions;
+      return view('questions.index',compact('questions'));
+    }
+
     /**
      * Display a listing of the resource.
      *
