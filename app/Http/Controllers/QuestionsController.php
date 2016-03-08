@@ -28,7 +28,7 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions = Question::all();
+        $questions = Question::latest('created_at')->get();
         return view('questions.index',compact('questions'));
     }
 
@@ -73,7 +73,8 @@ class QuestionsController extends Controller
     public function show($id)
     {
         $question = Question::find($id)->firstOrFail();
-        return view('questions.show',compact('question'));
+        $questions = Question::latest('created_at')->get();
+        return view('questions.show',compact(['question','questions']));
     }
 
     /**

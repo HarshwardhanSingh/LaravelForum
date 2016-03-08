@@ -3,7 +3,7 @@
 
 @section('content')
   <div class="row">
-    <div class="col-md-8 col-md-offset-2 middle-container">
+    <div class="col-md-6 col-md-offset-2 middle-container">
       <div class="question">
         <div class="panel-heading">
           <h4>{{ $question->title }}</h4>
@@ -25,8 +25,7 @@
   			@endif
         {!! Form::open(array('route'=>array('saveAnswer',$question->id))) !!}
           <div class="form-group">
-            {!! Form::label('content','Write Answer') !!}
-            {!! Form::textarea('content',null,array('class'=>'form-control','placeholder'=>'Write Answer','rows'=>'5')) !!}
+            {!! Form::textarea('content',null,array('class'=>'form-control','placeholder'=>'Write Your Answer Here...','rows'=>'5')) !!}
           </div>
           <div class="form-actions">
             {!! Form::token() !!}
@@ -39,7 +38,7 @@
         @foreach($question->answers as $answer)
           <div class="answer">
             <div class="panel-heading">
-              <b>{{ $answer->user->name }}</b> answered :-
+              <span>{{ $answer->user->name }}</span>
               <div class="timestamp">
                 {{ $answer->created_at->diffforHumans()}}
               </div>
@@ -51,6 +50,12 @@
         @endforeach
       </div>
     </div>
+    <!-- <div class="col-md-4">
+      @foreach($questions as $question)
+        {{$question->title}}
+        <br/>
+      @endforeach
+    </div> -->
   </div>
 
 @endsection
